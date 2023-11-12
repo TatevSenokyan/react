@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 const convertDuration = (duration) => {
     const hour = Math.floor(duration/3600);
@@ -8,14 +8,14 @@ const convertDuration = (duration) => {
 }
 
 export const FeaturedComponent = ({data}) => {
-   console.log('data', data);
+   //console.log('data', data);
    const [playVideo, setPlayVideo] = useState(false);
    const videoRef = useRef();
    if (!data) return;
    return (
     <div
-       style={{backgroundImage: !playVideo && `url(/images/movies/${data.CoverImage})`}}
-       className={`${playVideo ? 'relative' : ''} w-full h-full  bg-no-repeat bg-cover `}
+       style={{backgroundImage: !playVideo && `url(/images/movies/${data.CoverImage})`, height: window.innerHeight-325+'px'}}
+       className={`${playVideo ? 'relative' : ''} w-full  bg-no-repeat bg-[length:100%_100%] `}
     >
         {playVideo && <video
            className="absolute w-full"

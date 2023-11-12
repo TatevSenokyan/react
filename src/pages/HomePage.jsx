@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchData } from "../redux/features/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FeaturedComponent } from "../components/FeaturedComponent";
+import { Trending } from "../components/Trending";
 
 
 export default function HomePage () {
@@ -14,8 +15,9 @@ export default function HomePage () {
     }, []);
 
     return (
-        <div className={`w-full h-full`}>
+        <div className={`w-full h-full relative flex flex-col justify-between`}>
            <FeaturedComponent data={data.Featured}/>
+           <Trending data={data.TrendingNow}/>
         </div>
     );
 }
