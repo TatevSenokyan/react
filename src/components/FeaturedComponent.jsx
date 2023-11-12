@@ -11,11 +11,13 @@ const convertDuration = (duration) => {
 export const FeaturedComponent = ({data}) => {
    console.log('daFeaturedComponentta', data);
    const [playVideo, setPlayVideo] = useState(false);
+   const [play, setPlay] = useState(false);
    const storage = sessionStorage.getItem("movie");
    const videoRef = useRef();
 
    useEffect(()=>{
      setPlayVideo(true);
+     setPlay(false);
    }, []);
 
    useEffect(()=>{
@@ -62,6 +64,15 @@ export const FeaturedComponent = ({data}) => {
             </div>
             <div className="flex w-full h-[72px] mt-[50px]">
                <div
+                  onClick={()=>{
+                    if (play) {
+                       setPlay(false);
+                         videoRef && videoRef.current.pause();
+                    } else {
+                        setPlay(true);
+                         videoRef && videoRef.current.play();
+                    }
+                  }}
                   className="cursor-pointer bg-[url('/images/icons/play.png')] bg-[length:40px_40px] bg-[position:30%_50%] bg-no-repeat w-[240px] bg-[#F1F1F1] h-full rounded-[40px] text-[#000] flex items-center justify-center"
                 >
                     Play
