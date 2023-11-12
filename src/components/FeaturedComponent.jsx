@@ -25,10 +25,11 @@ export const FeaturedComponent = ({data}) => {
 
    useEffect(()=>{
      if (!playVideo && storage) {
-        setTimeout(()=>{
+        var id = setTimeout(()=>{
             setPlayVideo(true);
         }, 2000);
     }
+    return ()=>clearTimeout(id);
    }, [playVideo])
 
    return (
