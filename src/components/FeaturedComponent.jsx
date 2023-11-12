@@ -9,7 +9,6 @@ const convertDuration = (duration) => {
 }
 
 export const FeaturedComponent = ({data}) => {
-   console.log('daFeaturedComponentta', data);
    const [playVideo, setPlayVideo] = useState(false);
    const [play, setPlay] = useState(false);
    const storage = sessionStorage.getItem("movie");

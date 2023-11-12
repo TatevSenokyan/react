@@ -4,7 +4,6 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 export const fetchData = createAsyncThunk('fetchData',
  async({skip, limit, selected}, thunkAPI)=>{
-      console.log('info', skip, limit, selected);
       try {
         const resp = await fetch('/data.json');
         let data = await resp.json();
