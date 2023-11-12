@@ -8,11 +8,10 @@ export const fetchData = createAsyncThunk('fetchData',
  }
 )
 const moviesSlice = createSlice({
-    name: 'todolist',
+    name: 'movies',
     initialState: {data: []},
     extraReducers:{
         [fetchData.fulfilled]:(state, action)=>{
-           console.log('fetch', action);
            state.data = action.payload;
         }
     }

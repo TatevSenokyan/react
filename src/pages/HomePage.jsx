@@ -9,15 +9,21 @@ export default function HomePage () {
     const dispatch = useDispatch();
     const {data} = useSelector(state=>state.data);
     //console.log('data', data);
+    const [selected, setSelected] = useState(sessionStorage.getItem("movie") ? JSON.parse(sessionStorage.getItem("movie")) : null);
 
     useEffect(()=>{
         dispatch(fetchData());
     }, []);
 
+    const handleSelect = (item) => {
+        setSelected(item);
+        sessionStorage.setItem("movie", JSON.stringify(item));
+    }
+
     return (
         <div className={`w-full h-full relative flex flex-col justify-between`}>
-           <FeaturedComponent data={data.Featured}/>
-           <Trending data={data.TrendingNow}/>
+           <FeaturedComponent data={selected ? selected : data.Featured}/>
+           <Trending data={data.TrendingNow} handleSelect={handleSelect}/>
         </div>
     );
 }

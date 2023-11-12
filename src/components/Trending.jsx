@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-export const Trending = ({data}) => {
+export const Trending = ({data, handleSelect}) => {
     const sliderRef = useRef();
     const [isDown, setIsDown] = useState(false);
     const [startX, setStartX] = useState();
@@ -33,6 +33,7 @@ export const Trending = ({data}) => {
              data && data.map((item, index)=>{
                 return(
                     <div
+                      onClick={()=>handleSelect(item)}
                       style={{backgroundImage: `url(/images/movies/${item.CoverImage})`}}
                       key={index} 
                       className="min-w-[200px] h-full">

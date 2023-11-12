@@ -8,7 +8,7 @@ export default function Layout() {
         width: window.innerWidth,
         height: window.innerHeight,
     });
-    
+
     const handleResize = () => {
         setScreenSize({
             width: window.innerWidth,
@@ -28,7 +28,7 @@ export default function Layout() {
         <div className={`w-full h-full`}>
             <div className="flex h-screen">
                 <Menu handleUpdate={(state)=>setOpenMenu(state)}/>
-                <div className={`w-full ${openMenu ? 'pl-[350px]': 'pl-[120px]'}`}>
+                <div className={`w-full bg-[#040404] ${openMenu ? 'pl-[350px]': 'pl-[120px]'}`}>
                     <HomePage/>
                 </div>
             </div>
