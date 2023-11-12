@@ -17,7 +17,7 @@ export const Menu = ({handleUpdate}) => {
             >
                 <div className={`${open ? 'w-[312px]' : 'w-[82px]'} h-full relative`}>
                     <div className={`${open ? 'flex' : 'hidden'} w-full h-[82px] items-center text-[32px] font-tajawalBold`}>
-                        <div className="w-[82px] h-full rounded-[50%] bg-green-400"></div>
+                        <div className="w-[82px] h-full rounded-[50%] bg-[#3B486D]"></div>
                         <div className="ml-[20px] text-[#F1F1F1]">Daniel</div>
                     </div>
                     {buttons.map((item, i)=>{
