@@ -3,8 +3,24 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 
 export const fetchData = createAsyncThunk('fetchData',
- async(_, thunkAPI)=>{
-      return fetch('/data.json').then(resp=>resp.json()).catch(err=>console.log(err));
+ async({skip, limit, selected}, thunkAPI)=>{
+      console.log('info', skip, limit, selected);
+      try {
+        const resp = await fetch('/data.json');
+        let data = await resp.json();
+        data.TrendingNow.sort((a,b)=>new Date(b.Date).getTime()-new Date(a.Date).getTime());
+        if (selected) {
+            const newArray = data.TrendingNow.filter((item)=>item.Id!==selected.Id);
+            newArray.unshift(selected);
+            data.TrendingNow = newArray;
+        }
+        if (data.TrendingNow.length>limit) {
+            data.TrendingNow = data.TrendingNow.slice(skip, limit);
+        } 
+        return data;
+      } catch(err) {
+        console.log(err);
+      }
  }
 )
 const moviesSlice = createSlice({

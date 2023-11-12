@@ -12,7 +12,7 @@ export default function HomePage () {
     const [selected, setSelected] = useState(sessionStorage.getItem("movie") ? JSON.parse(sessionStorage.getItem("movie")) : null);
 
     useEffect(()=>{
-        dispatch(fetchData());
+        dispatch(fetchData({skip: 0, limit: 50, selected}));
     }, []);
 
     const handleSelect = (item) => {
