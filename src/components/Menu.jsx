@@ -7,7 +7,7 @@ export const Menu = ({handleUpdate}) => {
     const [selected, setSelected] = useState(1);
 
     return (
-        <div className={`${open? 'w-full h-full bg-[linear-gradient(90deg,_#040404_0%,_#040404FA_21%,_#04040400_100%)] absolute' : ''}`}>
+        <div className={`${open? 'w-full h-full bg-[linear-gradient(90deg,_#040404_0%,_#040404FA_21%,_#04040400_100%)] absolute z-[1000]' : ''}`}>
             <div
             onMouseEnter={()=>{
                 setOpen(true);
